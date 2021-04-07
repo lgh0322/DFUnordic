@@ -1,9 +1,12 @@
 package com.aaa.df
 
 import android.Manifest
+import android.app.NotificationManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -30,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         File(PathUtil.getPathX("fuck")).writeBytes(byteArrayOf(0x32.toByte(), 0x98.toByte()))
 
 
-        val starter = DfuServiceInitiator("C3:10:54:BF:5B:F7")
-                .setDeviceName("DuoEK 2301")
+        val starter = DfuServiceInitiator("DF:87:95:4B:C8:B3")
+                .setDeviceName("DuoEK 0508")
         val fileName: String = "f.zip"
         val directory: String =PathUtil.filePath
 
@@ -84,6 +87,15 @@ class MainActivity : AppCompatActivity() {
 
         override fun onDfuCompleted(deviceAddress: String) {
             Toast.makeText(this@MainActivity, "固件升级成功", Toast.LENGTH_SHORT).show()
+            Handler().postDelayed(object: Runnable {
+
+
+                override fun run() {
+                    val manager =  getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                    manager.cancel(DfuService.NOTIFICATION_ID);
+                }
+            }, 200);
+
         }
 
         override fun onDfuAborted(deviceAddress: String) {
