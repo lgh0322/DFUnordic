@@ -30,12 +30,11 @@ class MainActivity : AppCompatActivity() {
         checkPermissions()
 
         PathUtil.initVar(this)
-        File(PathUtil.getPathX("fuck")).writeBytes(byteArrayOf(0x32.toByte(), 0x98.toByte()))
 
 
-        val starter = DfuServiceInitiator("DF:87:95:4B:C8:B3")
-                .setDeviceName("DuoEK 0508")
-        val fileName: String = "f.zip"
+        val starter = DfuServiceInitiator("DC:9D:BE:B4:FD:05")
+                .setDeviceName("ER2 0065")
+        val fileName: String = "g.zip"
         val directory: String =PathUtil.filePath
 
         starter.setZip(directory + fileName)
@@ -104,7 +103,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun onProgressChanged(deviceAddress: String, percent: Int, speed: Float, avgSpeed: Float, currentPart: Int, partsTotal: Int) {
             val temp = percent * 360 / 100
-            Log.e("fuck", "sdf " + temp)
+            Log.e("erg", "sdf " + temp)
         }
 
         override fun onError(deviceAddress: String, error: Int, errorType: Int, message: String) {
