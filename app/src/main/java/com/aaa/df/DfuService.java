@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.IBinder;
 
+import com.aaa.df.dfu.DfuBaseService;
 
-import no.nordicsemi.android.dfu.BuildConfig;
-import no.nordicsemi.android.dfu.DfuBaseService;
 
 public class DfuService extends DfuBaseService {
 

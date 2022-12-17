@@ -15,14 +15,15 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.aaa.df.dfu.DfuProgressListener
+import com.aaa.df.dfu.DfuProgressListenerAdapter
+import com.aaa.df.dfu.DfuServiceInitiator
+import com.aaa.df.dfu.DfuServiceListenerHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import no.nordicsemi.android.dfu.DfuProgressListener
-import no.nordicsemi.android.dfu.DfuProgressListenerAdapter
-import no.nordicsemi.android.dfu.DfuServiceInitiator
-import no.nordicsemi.android.dfu.DfuServiceListenerHelper
+
 import java.util.*
 
 
